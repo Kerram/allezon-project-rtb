@@ -1,0 +1,19 @@
+---
+- name: Swarm nodes shutdown
+  hosts: swarm_nodes
+  remote_user: root
+  tasks:
+    - name: Shutdown nodes
+      become: true
+      become_user: root
+      command: docker swarm leave
+
+- name: Docker Swarm shutdown
+  hosts: swarm_manager
+  remote_user: root
+  tasks:
+    - name: Shutdown root
+      become: true
+      become_user: root
+      command: docker swarm leave
+
