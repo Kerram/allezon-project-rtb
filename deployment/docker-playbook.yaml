@@ -43,3 +43,9 @@
             state: restarted
       when: service_conf.changed
 
+   - name: Check if the docker daemon is running
+      become: true
+      become_user: root
+      command: systemctl is-active docker
+      register: docker_status
+      failed_when: docker_status.stdout_lines[0] != "active"
