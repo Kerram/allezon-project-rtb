@@ -15,7 +15,7 @@ cat docker_service > docker.service
 ansible-playbook --extra-vars "ansible_user=${USERNAME} ansible_password=${PASSWORD}" docker-playbook.yaml
 
 sudo docker info
-DOCKER_HOST=”<username>vm102.rtb-lab.pl” docker info
+DOCKER_HOST=”${USERNAME}vm102.rtb-lab.pl” docker info
 
 ansible docker -m ping --extra-vars "ansible_user=${USERNAME} ansible_password=${PASSWORD}"
 
